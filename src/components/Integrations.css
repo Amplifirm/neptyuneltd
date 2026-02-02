@@ -1,0 +1,226 @@
+.integrations__header {
+  margin-bottom: 60px;
+}
+
+.integrations__carousel-wrapper {
+  margin-bottom: 48px;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.integrations__carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.integrations__carousel-track {
+  display: flex;
+  gap: 48px;
+  animation: scroll 25s linear infinite;
+  width: max-content;
+}
+
+.integrations__carousel-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.integration-logo {
+  width: 120px;
+  height: 60px;
+  background: var(--white);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 12px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.integration-logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.integration-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.integration-logo:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.integrations__bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+.integrations__main {
+  grid-column: span 5;
+  background: var(--green-accent);
+  border-radius: 28px;
+  padding: 48px;
+}
+
+.integrations__main .icon-circle {
+  background: var(--white);
+  margin-bottom: 24px;
+}
+
+.integrations__title {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.integrations__desc {
+  font-size: 15px;
+  line-height: 1.65;
+  opacity: 0.7;
+  margin-bottom: 32px;
+}
+
+.integrations__link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.integrations__link:hover {
+  opacity: 0.7;
+}
+
+.integrations__graphic {
+  grid-column: span 7;
+  background: var(--white);
+  border-radius: 28px;
+  padding: 32px;
+  overflow: hidden;
+}
+
+.integrations__video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
+
+.integrations__graphic .graphic-placeholder {
+  height: 100%;
+  min-height: 260px;
+  background: var(--green-light);
+}
+
+.integrations__api {
+  grid-column: span 12;
+  background: var(--green-light);
+  border-radius: 28px;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 24px;
+  align-items: center;
+}
+
+.integrations__api .icon-circle {
+  background: var(--white);
+}
+
+.integrations__api h3 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.integrations__api p {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.6;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.integrations__api a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+  text-decoration: none;
+  transition: opacity 0.2s;
+  grid-column: 3;
+  grid-row: 1 / 3;
+  align-self: center;
+}
+
+.integrations__api a:hover {
+  opacity: 0.7;
+}
+
+.graphic-placeholder__dimensions {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.4;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .integrations__main,
+  .integrations__graphic,
+  .integrations__api {
+    grid-column: span 12;
+  }
+
+  .integrations__api {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .integrations__api .icon-circle {
+    justify-self: center;
+  }
+
+  .integrations__api p {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .integrations__api a {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .integration-logo {
+    width: 100px;
+    height: 50px;
+    padding: 10px 16px;
+  }
+
+  .integrations__carousel-track {
+    gap: 32px;
+  }
+}

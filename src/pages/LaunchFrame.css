@@ -1,0 +1,240 @@
+.launch-frame {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #F0FCE3, #e8f5d6);
+  padding: 40px;
+}
+
+.launch-frame__container {
+  width: 480px;
+  height: 360px;
+  background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.launch-frame__info {
+  margin-top: 24px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Stars */
+.stars-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.stars-layer--visible {
+  opacity: 1;
+}
+
+.star {
+  position: absolute;
+  background: #8BC34A;
+  border-radius: 50%;
+  animation: starTwinkle 2s ease-in-out infinite;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Constellation */
+.constellation-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.constellation-path {
+  stroke-dashoffset: 200;
+  animation: drawConstellation 1.5s ease forwards;
+}
+
+@keyframes drawConstellation {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Rocket */
+.rocket {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rocket--launched {
+  bottom: 320px;
+  opacity: 0;
+}
+
+.rocket__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.rocket__tip {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 30px solid #fff;
+  border-radius: 4px;
+}
+
+.rocket__middle {
+  width: 48px;
+  height: 60px;
+  background: #fff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -2px;
+}
+
+.rocket__middle img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.rocket__fins {
+  display: flex;
+  justify-content: space-between;
+  width: 70px;
+  margin-top: -10px;
+}
+
+.rocket__fin {
+  width: 16px;
+  height: 24px;
+  background: #D9F9B9;
+}
+
+.rocket__fin--left {
+  border-radius: 0 0 0 8px;
+  transform: skewX(15deg);
+}
+
+.rocket__fin--right {
+  border-radius: 0 0 8px 0;
+  transform: skewX(-15deg);
+}
+
+/* Exhaust */
+.exhaust {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.exhaust--active {
+  opacity: 1;
+}
+
+.exhaust__flame {
+  width: 20px;
+  height: 40px;
+  background: linear-gradient(180deg, #8BC34A 0%, #FFEB3B 50%, #FF9800 100%);
+  border-radius: 50% 50% 50% 50% / 20% 20% 80% 80%;
+  animation: flameFlicker 0.1s ease infinite;
+  margin-top: -4px;
+}
+
+.exhaust__flame--2 {
+  width: 12px;
+  height: 24px;
+  margin-top: -20px;
+  opacity: 0.7;
+}
+
+@keyframes flameFlicker {
+  0%, 100% { transform: scaleY(1) scaleX(1); }
+  50% { transform: scaleY(1.1) scaleX(0.9); }
+}
+
+/* Particles */
+.particles {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.particles--active {
+  opacity: 1;
+}
+
+.particle {
+  position: absolute;
+  bottom: 60px;
+  background: #8BC34A;
+  border-radius: 50%;
+  animation: particleRise 2s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes particleRise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-300px) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Label */
+.launch-label {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.launch-label--visible {
+  opacity: 1;
+}
+
+.launch-label span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  padding: 10px 20px;
+  background: rgba(139, 195, 74, 0.2);
+  border: 1px solid rgba(139, 195, 74, 0.4);
+  border-radius: 24px;
+  letter-spacing: 0.02em;
+}

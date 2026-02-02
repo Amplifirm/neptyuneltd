@@ -1,0 +1,229 @@
+.tickets-frame {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #F0FCE3, #e8f5d6);
+  padding: 40px;
+}
+
+.tickets-frame__container {
+  width: 400px;
+  height: 200px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+}
+
+.tickets-frame__info {
+  margin-top: 24px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Sidebar */
+.tickets__sidebar {
+  width: 70px;
+  background: #1a1a1a;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.tickets__logo {
+  width: 36px;
+  height: 36px;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.tickets__logo img {
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
+}
+
+.tickets__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat__value {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.stat__label {
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Main */
+.tickets__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tickets__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.tickets__title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.tickets__badge {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 6px;
+  background: #D9F9B9;
+  color: #2E7D32;
+  border-radius: 8px;
+}
+
+/* Ticket List */
+.tickets__list {
+  flex: 1;
+  padding: 6px 10px;
+  overflow: hidden;
+}
+
+.ticket {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border-radius: 6px;
+  margin-bottom: 2px;
+  transition: all 0.2s ease;
+  animation: ticketIn 0.3s ease-out;
+}
+
+@keyframes ticketIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.ticket--selected {
+  background: #f5f8f2;
+}
+
+.ticket__left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+
+.ticket__channel {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.ticket__channel--email {
+  background: #E3F2FD;
+  color: #1565C0;
+}
+
+.ticket__channel--slack {
+  background: #F3E5F5;
+  color: #7B1FA2;
+}
+
+.ticket__channel--phone {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+
+.ticket__info {
+  min-width: 0;
+  flex: 1;
+}
+
+.ticket__name {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+.ticket__message {
+  display: block;
+  font-size: 9px;
+  color: rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ticket__right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.ticket__priority {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.ticket__priority--high {
+  background: #EF5350;
+}
+
+.ticket__priority--medium {
+  background: #FFA726;
+}
+
+.ticket__priority--low {
+  background: #66BB6A;
+}
+
+.ticket__time {
+  font-size: 9px;
+  color: rgba(0, 0, 0, 0.4);
+}

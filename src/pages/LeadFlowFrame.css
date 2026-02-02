@@ -1,0 +1,247 @@
+.leadflow-frame {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #F0FCE3, #e8f5d6);
+  padding: 40px;
+}
+
+.leadflow-frame__container {
+  width: 520px;
+  height: 320px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  gap: 32px;
+}
+
+.leadflow-frame__info {
+  margin-top: 24px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Lead Card */
+.lead-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 24px;
+  background: #f8f9f7;
+  border-radius: 14px;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.4s ease;
+}
+
+.lead-card--visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.lead-card__avatar {
+  width: 44px;
+  height: 44px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.lead-card__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.lead-card__tag {
+  font-size: 9px;
+  font-weight: 600;
+  color: #8BC34A;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 8px;
+  background: #D9F9B9;
+  border-radius: 6px;
+}
+
+/* Scoring Box */
+.lead-scoring {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.scoring-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 28px;
+  background: #fff;
+  border-radius: 14px;
+  border: 1.5px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.scoring-box--active {
+  border-color: #8BC34A;
+  box-shadow: 0 8px 24px rgba(139, 195, 74, 0.15);
+}
+
+.scoring-box__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.scoring-box__logo {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+}
+
+.scoring-box__score {
+  position: relative;
+}
+
+.score-ring {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.score-ring svg {
+  width: 100%;
+  height: 100%;
+}
+
+.score-ring--animated {
+  animation: ringFill 0.6s ease forwards;
+}
+
+@keyframes ringFill {
+  from { stroke-dasharray: 0 100; }
+}
+
+.score-number {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.score-number--high { color: #8BC34A; }
+.score-number--low { color: #EF5350; }
+
+.scoring-box__result {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  animation: resultPop 0.3s ease;
+}
+
+@keyframes resultPop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.scoring-box__result--qualified {
+  background: #D9F9B9;
+  color: #2E7D32;
+}
+
+.scoring-box__result--rejected {
+  background: #FFEBEE;
+  color: #EF5350;
+}
+
+/* Bookings */
+.lead-bookings {
+  width: 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bookings-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.bookings-header svg {
+  color: #8BC34A;
+}
+
+.bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bookings-empty {
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.3);
+  padding: 16px 0;
+}
+
+.booking-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #f8f9f7;
+  border-radius: 8px;
+  animation: bookingIn 0.3s ease;
+}
+
+@keyframes bookingIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.booking-item__avatar {
+  width: 24px;
+  height: 24px;
+  background: #1a1a1a;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.booking-item__name {
+  flex: 1;
+  font-size: 11px;
+  font-weight: 600;
+  color: #1a1a1a;
+}

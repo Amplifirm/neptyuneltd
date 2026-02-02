@@ -1,0 +1,326 @@
+.arch-frame {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #F0FCE3, #e8f5d6);
+  padding: 40px;
+}
+
+.arch-frame__container {
+  width: 600px;
+  height: 400px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.arch-frame__info {
+  margin-top: 24px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Background */
+.arch-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.arch-bg__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.4;
+}
+
+.arch-bg__glow--1 {
+  width: 200px;
+  height: 200px;
+  background: #D9F9B9;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.arch-bg__glow--2 {
+  width: 150px;
+  height: 150px;
+  background: #D9F9B9;
+  bottom: -30px;
+  right: 100px;
+}
+
+/* Content Layout */
+.arch-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 50px;
+}
+
+/* Input Node */
+.arch-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0.4;
+  transform: translateX(-10px);
+  transition: all 0.4s ease;
+}
+
+.arch-input--active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.arch-input__icon {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  background: #1a1a1a;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.arch-input__waves {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arch-input__waves span {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border: 2px solid #8BC34A;
+  border-radius: 14px;
+  animation: waveExpand 1.2s ease-out infinite;
+}
+
+.arch-input__waves span:nth-child(2) { animation-delay: 0.3s; }
+.arch-input__waves span:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes waveExpand {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.arch-input__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.arch-input__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.arch-input__sample {
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.4);
+  font-style: italic;
+}
+
+/* Flow Lines (CSS) */
+.arch-line {
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arch-line__track {
+  width: 100%;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.arch-line__dot {
+  position: absolute;
+  width: 8px;
+  height: 2px;
+  background: #8BC34A;
+  border-radius: 1px;
+  left: -8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.arch-line--active .arch-line__dot {
+  opacity: 1;
+  animation: dotMove 1s ease-in-out infinite;
+}
+
+@keyframes dotMove {
+  0% { left: -8px; }
+  100% { left: 100%; }
+}
+
+/* Core Node */
+.arch-core {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  opacity: 0.4;
+  transform: scale(0.9);
+  transition: all 0.4s ease;
+}
+
+.arch-core--active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.arch-core__ring {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border: 1px solid rgba(139, 195, 74, 0.2);
+  border-radius: 50%;
+  animation: ringRotate 15s linear infinite;
+}
+
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.arch-core__inner {
+  width: 64px;
+  height: 64px;
+  background: #fff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 1;
+}
+
+.arch-core--active .arch-core__inner {
+  border-color: #8BC34A;
+}
+
+.arch-core__inner img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.arch-core__pulse {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  border: 2px solid #8BC34A;
+  border-radius: 16px;
+  animation: corePulse 1s ease-out infinite;
+  z-index: 0;
+}
+
+@keyframes corePulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.arch-core__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Outputs */
+.arch-outputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.arch-output {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: #f8f9f7;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+}
+
+.arch-output--active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.arch-output__icon {
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.arch-output--active .arch-output__icon {
+  background: #D9F9B9;
+  border-color: transparent;
+  color: #2E7D32;
+}
+
+.arch-output__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* SVG Lines */
+.arch-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.arch-path {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.arch-path--active {
+  stroke-dashoffset: 0;
+}
